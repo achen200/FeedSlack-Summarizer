@@ -1,0 +1,20 @@
+.new-file-form{  
+	background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+	padding: 20px;
+	color: white;
+	text-align: left;
+  }
+
+label, input {
+	display:block;
+	margin-bottom:5px;
+}
+
+.newfile-btn{
+	border: 1px solid black;
+	border-radius: 15px;
+	text-align: center;
+}
+.newfile-btn:hover{
+	background-color: rgba(0, 0, 0, 0.2);
+}

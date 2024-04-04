@@ -90,17 +90,17 @@ side-menu {
 	height: 790px;
 	position: relative;
 	width: 1181px;
+	align-items: center;
+	display: flex;
+	flex-direction:column;
+	gap: 20px;
   }
   
   .main-display .original {
 	align-items: flex-start;
 	display: inline-flex;
 	flex-direction: column;
-	gap: 9px;
-	height: 411px;
-	left: 36px;
-	position: absolute;
-	top: 331px;
+	position: relative;
   }
   
   .main-display .text-wrapper {
@@ -116,12 +116,13 @@ side-menu {
 	width: 233px;
   }
   
-  .main-display .original-text {
-	border: 1px solid;
-	border-color: #f99797;
-	height: 363px;
+  .original-box {
+	border: 1px solid #f99797;
+	height: 362px;
 	position: relative;
 	width: 1110px;
+	font-family: "Poppins-Regular", Helvetica;
+	font-size: 16px;
   }
   
   .main-display .summary {
@@ -129,31 +130,26 @@ side-menu {
 	background-color: #ffffff;
 	display: inline-flex;
 	flex-direction: column;
-	gap: 9px;
-	left: 36px;
 	position: relative;
-	top: 28px;
   }
   
-  .main-display .summary-box {
-	border: 1px solid;
-	border-color: #f99797;
-	height: 226px;
+  .summary-box {
+	border: 1px solid #f99797;
 	position: relative;
+	height:226px;
 	width: 1110px;
-  }
-  
-  .main-display .div {
-	color: #000000;
 	font-family: "Poppins-Regular", Helvetica;
 	font-size: 16px;
-	font-weight: 400;
-	margin:10px;
-	letter-spacing: 0;
-	line-height: normal;
-	position: absolute;
-	width: 1073px;
   }
+
+  .summary-box:focus, .original-box:focus{
+	outline:none;
+	border: 2px solid black;
+  }
+  textarea{
+	resize:none;
+  }
+
 
   .top-nav {
 	background-color: #ffffff;
@@ -185,7 +181,7 @@ side-menu {
   }
   
   .top-nav .avatar-main {
-	background-image: url('../public/DefaultPFP.png');
+	background-image: url('../../public/DefaultPFP.png');
 	background-position: 50% 50%;
 	background-size: cover;
 	border-radius: 58.79px;
