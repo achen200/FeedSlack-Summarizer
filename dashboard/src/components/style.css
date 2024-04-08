@@ -34,8 +34,7 @@ side-menu {
 	align-items: flex-end;
 	display: flex;
 	height: 29px;
-	justify-content: center;
-	width: 135px;
+	justify-content: left;
   }
 
   .side-menu .file:hover {
@@ -57,7 +56,6 @@ side-menu {
 	letter-spacing: 0;
 	line-height: normal;
 	position: relative;
-	width: 105px;
 	text-align: left;
   }
 
