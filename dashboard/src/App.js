@@ -4,18 +4,40 @@ import { MainDisplay } from './components/MainDisplay';
 import { TopNav } from './components/TopNav';
 import { useState } from 'react';
 
-function App() {
-  const [currTitle, setCurrTitle] = useState("No File Selected");
-  const [currOriginal, setOriginal] = useState("Please select a file");
-	const [currSummary, setSummary] = useState("Please select a file");
+const noFile = {
+	name:"No File Selected",
+	text:"Please select/create a file",
+	sum:"Please select/create a file"
+}
 
-  return (
-    <div className="App">
-	 <SideMenu setCurrTitle={setCurrTitle} setCurrOriginal={setOriginal} setCurrSummary={setSummary}/>
-	 <TopNav/>
-	 <MainDisplay file={currTitle} original={currOriginal} summary={currSummary}/>
-    </div>
-  );
+function App() {
+	const [fileList, setFileList] = useState([]);
+	const [currFile, setCurrFile] = useState(noFile);
+	const [currId, setCurrId] = useState(-1);
+
+	function addFile(file){
+		setFileList([...fileList, file]);
+		console.log(fileList);
+	}
+	
+	function setFile(id){
+		setCurrId(id);
+		setCurrFile(fileList[id]);
+	}
+
+	function editFile(id, name, text, sum){
+		const newList = [...fileList];
+		newList[id] = {name:name, text:text, sum:sum};
+		setFileList(newList);
+	}
+
+	return (
+		<div className="App">
+			<SideMenu files={fileList} setFile={setFile} addFile={addFile}/>
+			<TopNav/>
+			<MainDisplay file={currFile} currId={currId} editFile={editFile}/>
+		</div>
+	);
 }
 
 export default App;

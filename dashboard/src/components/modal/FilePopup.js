@@ -45,13 +45,13 @@ async function parseFile(filename, file, addfile){
 		case 'log':
 		case 'txt':
 			reader.readAsText(file);
-			reader.onloadend = () => addfile(filename, reader.result);
+			reader.onloadend = () => addfile({name:filename, text:reader.result, sum:null});
 			break;
 		case 'pdf': 	
 		case 'docx':	
 		case 'xlsx':
 			let text = await extractText(file, ext);
-			addfile(filename, text);
+			addfile({name:filename, text:text, sum:null });
 			break;
 		default: //Attempt to read as text
 			alert("File type is not supported");
