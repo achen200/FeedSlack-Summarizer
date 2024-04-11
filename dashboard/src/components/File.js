@@ -7,7 +7,6 @@ export const File = (props) => {
 	
 	useEffect(() => {
 		setFile();
-		console.log("initialized component");
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 

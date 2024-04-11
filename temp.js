@@ -1,4 +1,11 @@
-import OpenAI from 'openai';
+import express from 'express';
+import { google } from "googleapis";
+import { getGoogleOAuthURL } from './getGoogleUrl.js';
+
+
+console.log(getGoogleOAuthURL());
+
+
 import express from 'express';
 const openai = new OpenAI({ apiKey:"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"});
 const app = express();

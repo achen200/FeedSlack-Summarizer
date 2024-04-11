@@ -6,13 +6,23 @@ export function SummaryBox(props){
 
 	useEffect(()=>{
 		setShowSum(props.file.sum);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	},[props.id]);
 
-	function generateSum(){
-		const newsum = "This is a sample generated summary";
-		props.editFile(props.id, props.file.name, props.file.text, newsum);
+	async function generateSum(){
+		const response = await fetch("http://localhost:3080/",{
+			method:"POST",
+			headers:{
+				"Content-Type":"application/json",
+			},
+			body:JSON.stringify({
+				message:props.file.text
+			})
+		});
+		const newsum = await response.json();
+		props.editFile(props.id, props.file.name, props.file.text, newsum.data);
 		setShowSum(true);
-		setSum(newsum);
+		setSum(newsum.data);
 	}
 
 	return (showSum) ?(

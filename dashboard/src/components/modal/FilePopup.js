@@ -72,7 +72,7 @@ function extractText(file, type){
 				if(type === "docx"){
 					extractRawText({arrayBuffer:data})
 						.then(text => resolve(text.value))
-						.catch(error => console.log(error));
+						.catch(error => alert(error));
 				}
 				else if (type === "xlsx"){
 					const workbook = XLSX.read(data);

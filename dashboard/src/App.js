@@ -17,7 +17,6 @@ function App() {
 
 	function addFile(file){
 		setFileList([...fileList, file]);
-		console.log(fileList);
 	}
 	
 	function setFile(id){

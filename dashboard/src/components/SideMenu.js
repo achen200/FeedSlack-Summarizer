@@ -1,7 +1,6 @@
 import "./style.css";
 import { Logo } from "./Logo";
 import { File } from "./File";
-import { useState } from "react";
 import { FilePopup } from "./modal/FilePopup";
 
 export const SideMenu = (props) => {
