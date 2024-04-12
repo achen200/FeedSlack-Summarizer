@@ -34,7 +34,7 @@ function App() {
 		<div className="App">
 			<SideMenu files={fileList} setFile={setFile} addFile={addFile}/>
 			<TopNav/>
-			<MainDisplay file={currFile} currId={currId} editFile={editFile}/>
+			<MainDisplay file={currFile} currId={currId} editFile={editFile} setFile={setFile}/>
 		</div>
 	);
 }

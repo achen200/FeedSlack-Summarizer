@@ -13,7 +13,11 @@ side-menu {
   }
   
   .side-menu .my-documents {
-	width: 256px;
+	width: 254px;
+	margin-left: 2px;
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
   }
   
   .side-menu .file-header {
@@ -30,33 +34,36 @@ side-menu {
 	margin-top:1.5%;
   }
   
-  .side-menu .file {
-	align-items: flex-end;
+  .file {
 	display: flex;
 	height: 29px;
 	justify-content: left;
   }
 
-  .side-menu .file:hover {
+  .file:hover {
 	background-color: rgba(0,0,0,0.2);
   }
   
-  .side-menu .file-icon {
+  .file-icon {
 	height: 28px;
-	position: relative;
 	width: 28px;
+
   }
   
-  .side-menu .file-name {
+  .file-name {
+	display:flex;
+	align-items: center;
+  }
+  
+  .file-name .text-wrapper{
 	color: #000000;
 	font-family: "Poppins-Regular", Helvetica;
 	font-size: 12px;
 	font-weight: 400;
-	height: 28px;
-	letter-spacing: 0;
-	line-height: normal;
-	position: relative;
-	text-align: left;
+	max-width:30ch;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
   }
 
   .logo {
@@ -91,7 +98,19 @@ side-menu {
 	align-items: center;
 	display: flex;
 	flex-direction:column;
-	gap: 20px;
+	gap: 15px;
+	margin-top: 10px;
+  }
+
+  .main-display .title {
+	color: black;
+	font-family: "Poppins-Regular", Helvetica;
+	font-size: 30px;
+	font-weight: 400;
+	max-width:40ch;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
   }
   
   .main-display .original {
@@ -109,13 +128,13 @@ side-menu {
 	height: 39px;
 	letter-spacing: 0;
 	line-height: normal;
-	margin-top: -1px;
 	position: relative;
 	width: 233px;
   }
   
   .original-box {
-	border: 1px solid #f99797;
+	border: 2px solid #9797f9;
+	border-radius:4px;
 	height: 362px;
 	position: relative;
 	width: 1110px;
@@ -132,8 +151,8 @@ side-menu {
   }
   
   .summary-box {
-	border: 1px solid #f99797;
-	position: relative;
+	border: 2px solid #9797f9;
+	border-radius:4px;
 	height:226px;
 	width: 1110px;
 	font-family: "Poppins-Regular", Helvetica;
@@ -146,6 +165,22 @@ side-menu {
   }
   textarea{
 	resize:none;
+  }
+
+  .summary button{
+	padding: 0px 20px;
+	border: none;
+	background-color:#c24a05;
+	text-align: center;
+	font-family: "Poppins-Regular", Helvetica;
+	font-size: 20px;
+	line-height: 2;
+	border-radius: 4px;
+	color: white;
+  }
+
+  .summary button:hover{
+	background-color: #c24a0581;
   }
 
 

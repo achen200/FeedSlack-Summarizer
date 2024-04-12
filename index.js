@@ -11,23 +11,28 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
+function timeout(delay) {
+    return new Promise(res => setTimeout(res, delay));
+}
+
 app.post('/', async (req, res)=>{
+	const { message } = req.body;
+	await timeout(1000);
+	res.json({
+		data:message,
+		tokens:"-1"
+	})
+	// const prompt = "Summarize: " + message.replace(/(\r\n|\n|\r)/gm, "");
+	
 	// const response = await openai.chat.completions.create({
-	// 	messages:[{"role":"system", "content":"You're a helpful assistant"}],
+	// 	messages:[{"role":"system", "content":prompt}],
 	// 	model: "gpt-3.5-turbo"
 	// });
-	// console.log(response.choices[0].message);
+	// console.log(response.choices[0].message.content);
 	// res.json({
-	// 	data:response.choices[0]
+	// 	data:response.choices[0].message.content,
+	// 	tokens:response.usage.total_tokens
 	// });
-	const {message} = req.body;
-	console.log(req.body)
-	console.log(message);
-	res.json({
-		data:"Something very important"
-	})
-	//response.choices[0]/message.content
-	//response.usage.total_tokens
 });
 
 app.listen(port, ()=>{

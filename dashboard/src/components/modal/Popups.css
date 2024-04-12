@@ -1,9 +1,40 @@
-.new-file-form{  
-	background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
-	padding: 20px;
-	color: white;
-	text-align: left;
-  }
+/* .new-file-form{   */
+	/* background-color: #9797f972; /* semi-transparent background */
+	/* border: 3px solid #9797f9; */
+	/* border-radius: 4px; */
+	/* padding: 20px; */
+	/* text-align: left; */ 
+/* } */
+.new-file-form{
+	border: 1px dashed black;
+	display: flex;
+	flex-direction: column;
+	padding: 3px;
+}
+
+.form-buttons{
+	display: flex;
+	flex-direction: row;
+	gap: 3px;
+}
+input[type="file"]{
+	width: calc(100%);
+}
+input[type="file"]::file-selector-button {
+	border: 3px solid gray;
+	border-radius: 4px;
+	height: 30px;
+	padding-left: 30px;
+	cursor: pointer;
+	color: #0964b0;
+	border: 1px solid rgba(0, 0, 0, 0.16);
+	box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+	background-color: white;
+	background-size: 30px;
+	background-repeat: no-repeat;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230964B0'%3E%3Cpath d='M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3h-2zM7 9l1.41 1.41L11 7.83V16h2V7.83l2.59 2.58L17 9l-5-5-5 5z'/%3E%3C/svg%3E");
+}
+
 
 label, input {
 	display:block;
@@ -11,10 +42,43 @@ label, input {
 }
 
 .newfile-btn{
-	border: 1px solid black;
-	border-radius: 15px;
 	text-align: center;
+	font-family: "Poppins-Regular", Helvetica;
+	font-size: 14px;
+	line-height: 2;
+	background-color: #0964b0;
+	color: white;
+	border-radius: 4px;
+	border: none;
 }
-.newfile-btn:hover{
+
+#upload{
+	width: 80px;
+	text-align: center;
+	font-family: "Poppins-Regular", Helvetica;
+	font-size: 14px;
+	line-height: 1.5;
+	background-color: #0964b0;
+	color: white;
+	border-radius: 4px;
+	border: none;
+}
+
+#cancel{
+	width: 80px;
+	text-align: center;
+	font-family: "Poppins-Regular", Helvetica;
+	font-size: 14px;
+	line-height: 1.5;
+	background-color: white;
+	color: rgba(0, 0, 0, 0.52);
+	border-radius: 4px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.newfile-btn:hover, #upload:hover{
+	background-color: #0965b0a5;
+}
+
+#cancel:hover{
 	background-color: rgba(0, 0, 0, 0.2);
 }

@@ -8,8 +8,10 @@ const reader = new FileReader();
 
 export const FilePopup = (props) => {
 	const [hide, setHide] = useState(true);
+	const [showUpload, setShowUpload] = useState(false);
 	function togglePopup(){
 		setHide(!hide);
+		setShowUpload(false);
 	}
 
 	function handleSubmit(e){
@@ -20,13 +22,19 @@ export const FilePopup = (props) => {
 		togglePopup();
 	}
 
+	function handleChange(){
+		setShowUpload(true);
+	}
+
 	return !hide ? (
 		<div className="new-file-form">
-			<form onSubmit={handleSubmit}>
-				<input type="file" name="file" required/>
-				<button>Upload</button>
+			<form id="fileform" onSubmit={handleSubmit}>
+				<input type="file" name="file" onChange={handleChange} required/>
 			</form>
-			<button onClick={togglePopup}>Cancel</button>
+			<div className="form-buttons">
+				{showUpload && <button type="submit" form="fileform" id="upload">Upload</button>}
+				<button id="cancel" onClick={togglePopup}>Cancel</button>
+			</div>
 		</div>
 	) : (
 		<div className="newfile-btn" onClick={togglePopup}>New File</div>
