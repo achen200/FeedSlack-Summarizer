@@ -20,7 +20,7 @@ app.post('/', async (req, res)=>{
 	await timeout(1000);
 	res.json({
 		data:message,
-		tokens:"-1"
+		tokens:"100"
 	})
 	// const prompt = "Summarize: " + message.replace(/(\r\n|\n|\r)/gm, "");
 	
