@@ -1,6 +1,6 @@
 import "./style.css";
 
-export const Logo = () => {
+export function Logo(){
   return (
     <div className="logo">
       <div className="text-wrapper">Sample Logo</div>

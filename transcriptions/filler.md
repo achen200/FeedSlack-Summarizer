@@ -1,0 +1,1 @@
+This is a filler file so github tracks the `transcriptions` folder, which is used to help prevent duplicate file uploads to assemblyAI.

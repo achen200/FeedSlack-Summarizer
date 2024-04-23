@@ -1,44 +1,46 @@
 import { useState } from "react";
-import axios from "axios";
 import "./Popups.css";
 
-
-export const FilePopup = (props) => {
-	//Send props of adding new file
+export function FilePopup(props){
 	const [hide, setHide] = useState(true);
+	const [showUpload, setShowUpload] = useState(false);
+	function togglePopup(){
+		setHide(!hide);
+		setShowUpload(false);
+	}
 
-	function showPopup(){
-		setHide(false);
-	}
-	function closePopup(){
-		setHide(true);
-	}
-	function handleSubmit(e){
+	async function handleSubmit(e){
 		e.preventDefault();
-		const filename = e.target.elements['fname'].value;
-		const originaltext = e.target.elements['original'].value;
-		
-		//Link handling in here...
-		//TODO: Change original text to link of google docs file, then send 
-		//HTTP request to retrieve docs data, THEN used retrieved data to 
-		//call openAI API
+		const file = e.target[0].files[0];
+		const formData = new FormData();
+		formData.append('file', file);
+		formData.append('filename', file.name);
 
-		props.addNew(filename, originaltext);
-		closePopup();
+		const response = await fetch("http://localhost:3080/upload", {
+			method:"POST",
+			body: formData
+		})
+
+		const parsedFile = await response.json();
+		props.addNew(parsedFile.data);
+		togglePopup();
+	}
+
+	function handleChange(){
+		setShowUpload(true);
 	}
 
 	return !hide ? (
 		<div className="new-file-form">
-			<button onClick={closePopup}> x</button>
-			<form onSubmit={handleSubmit}>
-				<label htmlFor="fname">FileName</label>
-				<input type="text" id="fname" minLength="3" maxLength="20" required/>
-				<label htmlFor="original">Original Text</label>
-				<input type="text" id="original"/>
-				<input type="submit" value="Create"/>
+			<form id="fileform" onSubmit={handleSubmit}>
+				<input type="file" name="file" onChange={handleChange} encType="multipart/form-data" required/>
 			</form>
+			<div className="form-buttons">
+				{showUpload && <button type="submit" form="fileform" id="upload">Upload</button>}
+				<button id="cancel" onClick={togglePopup}>Cancel</button>
+			</div>
 		</div>
 	) : (
-		<div className="newfile-btn" onClick={showPopup}>New File</div>
+		<div className="newfile-btn" onClick={togglePopup}>New File</div>
 	);
 }
