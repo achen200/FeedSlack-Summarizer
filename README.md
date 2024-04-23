@@ -9,15 +9,25 @@ Install dependencies with `npm install` in both root and `/dashboard` directorie
 
 To run client: `npm start` in `/dashboard` directory
 To test server: `node index.js` in root 
-  
+
+## Completed
+#### Functionality and Architecture
+- Local file uploading
+- Client server separation for uploading and API handling
+- Summaries from openAI API
+- Video/Audio upload & transcription with AssemblyAI
+- Duplicate upload prevention measures for video/audios
+#### Visuals
+- Stylized upload menu to match dashboard theme in `FilePopup.js`
+- Align document items in `SideMenu.js`
+- Hidden Summary Box until summary generated
+
 ##  Incompletes
-High Priority
-- Implement google drive API request in `FilePopup.js` (currently testing drive API in `/index.js`)
-- Connect google drive output to OpenAI API
-- Stylize `FilePopup.js` and rest of dashboard
-- Logo
-  
-Low Priority
-- Video transcription
+#### High Priority
+- Logo  
+- Duplicate prevention for all files
+- Visible uploading/transcription/summarization progress on frontend 
+- Make server alerts appear in browser (error handling)
+#### Low Priority
 - Profile option
-- Local uploads
+-  Token count/limitations
