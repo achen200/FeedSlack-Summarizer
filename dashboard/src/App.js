@@ -14,6 +14,7 @@ function App() {
 	const [fileList, setFileList] = useState([]);
 	const [currFile, setCurrFile] = useState(noFile);
 	const [currId, setCurrId] = useState(-1);
+	const [tokens, setTokens] = useState(10000);
 
 	function addFile(file){
 		setFileList([...fileList, file]);
@@ -30,11 +31,15 @@ function App() {
 		setFileList(newList);
 	}
 
+	function useTokens(ts){
+		setTokens(tokens - ts);
+	}
+
 	return (
 		<div className="App">
 			<SideMenu files={fileList} setFile={setFile} addFile={addFile}/>
-			<TopNav/>
-			<MainDisplay file={currFile} currId={currId} editFile={editFile} setFile={setFile}/>
+			<TopNav tokens={tokens}/>
+			<MainDisplay file={currFile} currId={currId} editFile={editFile} setFile={setFile} useTokens={useTokens}/>
 		</div>
 	);
 }

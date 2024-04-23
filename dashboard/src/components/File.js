@@ -1,6 +1,6 @@
 import { useEffect } from "react"; 
 
-export const File = (props) => {
+export function File(props){
 	function setFile(){
 		props.setFile(props.id);
 	}

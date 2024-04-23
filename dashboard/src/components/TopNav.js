@@ -1,6 +1,7 @@
-export const TopNav = () => {
+export function TopNav(props) {
   return (
     <div className="top-nav">
+	<div>Remaining Tokens: {props.tokens}</div>
       <div className="profile">
         <div className="text-wrapper">User Name</div>
         <div className="avatar-main" />

@@ -20,7 +20,7 @@ export function SummaryBox(props){
 		if(disabled) return;
 		setDisabled(true);
 
-		const response = await fetch("http://localhost:3080/",{
+		const response = await fetch("http://localhost:3080/generate-summary",{
 			method:"POST",
 			headers:{
 				"Content-Type":"application/json",
@@ -32,8 +32,8 @@ export function SummaryBox(props){
 		const newsum = await response.json();
 		props.editFile(props.id, props.file.name, props.file.text, newsum.data);
 		console.log(`Tokens used: ${newsum.tokens}`);
+		props.useTokens(Number(newsum.tokens));
 		
-		//TODO: Bug while generating summary
 		setDisabled(false);	
 		setShowSum(true);
 		setSum(newsum.data);

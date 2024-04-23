@@ -1,6 +1,3 @@
-import dotenv from 'dotenv';
-dotenv.config();
-
 export function getGoogleOAuthURL(){
 	const rootUrl = 'https://accounts.google.com/o/oauth2/v2/auth'
 	const options = {

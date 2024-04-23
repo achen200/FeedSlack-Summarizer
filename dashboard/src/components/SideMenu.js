@@ -3,8 +3,7 @@ import { Logo } from "./Logo";
 import { File } from "./File";
 import { FilePopup } from "./modal/FilePopup";
 
-export const SideMenu = (props) => {
-
+export function SideMenu(props){
   return (
     <div className="side-menu">
       <Logo/>
