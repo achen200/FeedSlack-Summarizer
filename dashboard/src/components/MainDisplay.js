@@ -1,6 +1,23 @@
 import { SummaryBox } from "./SummaryBox";
 import "./style.css";
-
+/**
+ * Contains textbox with the current file's 
+ * original text and its corresponding summary.
+ * 
+ * Hierarchy: App -> MainDisplay
+ * 
+ * Children: SummaryBox
+ * @param {Object} props
+ * @param {Object} props.file
+ * @param {String} props.file.name
+ * @param {String} props.file.text 
+ * @param {String} props.file.sum
+ * @param {Number} props.currId
+ * @param {Function} props.editFile
+ * @param {Function} props.setFile
+ * @param {Function} props.useTokens
+ * @returns 
+ */
 export function MainDisplay(props){
 	return (
 		<div className="main-display"> 

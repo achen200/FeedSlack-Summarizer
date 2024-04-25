@@ -1,3 +1,13 @@
+/**
+ * Top Navigation Bar
+ * 
+ * Hierarchy: App -> TopNav
+ * 
+ * Children: None
+ * @param {Object} props 
+ * @param {Number} props.tokens
+ * @returns 
+ */
 export function TopNav(props) {
   return (
     <div className="top-nav">

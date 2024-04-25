@@ -1,5 +1,20 @@
 import { useEffect } from "react"; 
 
+/**
+ * File component for list of files displayed
+ * under Documents. Props are passed from App.js to
+ * set current file, determining which content to 
+ * display in MainDisplay.js
+ * 
+ * Hierarchy: App -> SideMenu -> File
+ * 
+ * Children: None
+ * 
+ * @param {Object} props
+ * @param {Function} props.setFile
+ * @param {Number} props.id 
+ * @returns 
+ */
 export function File(props){
 	function setFile(){
 		props.setFile(props.id);

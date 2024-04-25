@@ -4,16 +4,29 @@ import { MainDisplay } from './components/MainDisplay';
 import { TopNav } from './components/TopNav';
 import { useState } from 'react';
 
+//Placeholder file
 const noFile = {
 	name:"No File Selected",
 	text:"Please select/create a file",
 	sum:"Please select/create a file"
 }
 
+/**
+ * Entry point for client
+ * 
+ * Children: Sidemenu->(Logo, FilePopup, File),
+ * TopNav, MainDisplay->(SummaryBox)
+ * 
+ * @returns 
+ */
 function App() {
+	//List of files
 	const [fileList, setFileList] = useState([]);
+	//Current File to Display
 	const [currFile, setCurrFile] = useState(noFile);
-	const [currId, setCurrId] = useState(-1);
+	//Current file's ID
+	const [currId, setCurrId] = useState(-1); 
+	//Number of tokens (used after every summary call)
 	const [tokens, setTokens] = useState(10000);
 
 	function addFile(file){
