@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-
+import { getExtension, timeout } from "../utilities.js";
+import { ThreeDots } from "react-loader-spinner";
 /**
  * Component that determines whether Summary Box
  * is displayed, and what contents to display inside it. 
@@ -26,9 +27,15 @@ export function SummaryBox(props){
 	const [sum, setSum] = useState("");
 	//Disable "Generate Summary" button 
 	const [disabled, setDisabled] = useState(false);
+	//Whether current file is spreadsheet
+	const [isSheet, setIsSheet] = useState(false);
+	//Loading dots color
+	const [color, setColor] = useState("");
 
 	//Upon switching current files
 	useEffect(()=>{
+		const ext = getExtension(props.file.name);
+		setIsSheet((ext === "xlsx" || ext === "csv"));
 		if(props.file.sum){
 			setShowSum(true);
 			setSum(props.file.sum);
@@ -42,6 +49,7 @@ export function SummaryBox(props){
 		//Prevent multiple presses
 		if(disabled) return;
 		setDisabled(true);
+		setColor("#c24a05"); //Color of summarize button
 
 		//Server request to generate summary
 		const response = await fetch("http://localhost:3080/generate-summary",{
@@ -64,15 +72,29 @@ export function SummaryBox(props){
 		setSum(newsum.data);
 	}
 
-	return (showSum) ?(
+	async function generateVis(){
+		if(disabled) return;
+		setDisabled(true);
+		setColor("#038e36");
+		
+		await timeout(2000);
+
+		//Send POST request to server
+		setShowSum(true);
+		setSum("Fill this with a chart")
+		setDisabled(false);
+	}
+
+	return (showSum)?(
 		<div className="summary">
 			<div className="text-wrapper">Content Summary</div>
 			<textarea className="summary-box" readOnly value={sum}/>
 		</div>
 	):(
-		<div className="summary">
-			<button onClick={generateSum} disabled={disabled}>{disabled?"Generating...":"Generate Summary"}
-			</button>
+		<div className="presummary"> 
+			{disabled && <ThreeDots height="80" color={color}/>}
+			{!disabled && <button id="sum" onClick={generateSum} disabled={disabled}>Generate Summary</button>}
+			{!disabled && isSheet && <button id="vis" onClick={generateVis} disabled={disabled}>Visualize Data</button>}
 		</div>
 	);
 }
