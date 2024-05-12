@@ -23,6 +23,8 @@
 }
 input[type="file"]{
 	width: calc(100%);
+	font-family: Tahoma, sans-serif;
+	font-size: 14px;
 }
 input[type="file"]:hover{
 	background-color: #8f90b913;
@@ -34,10 +36,11 @@ input[type="file"]::file-selector-button {
 	height: 70px;
 	background-repeat: no-repeat;
 	background-image: url("../../../public/upload.svg");
-	background-position: center;
+	background-position: left;
+	border: none;
 	color: transparent;
 	background-color: transparent;
-	border:none;
+	
 }
 
 label, input {
@@ -47,7 +50,7 @@ label, input {
 
 .newfile-btn{
 	text-align: center;
-	font-family: "Poppins-Regular", Helvetica;
+	font-family: Tahoma, sans-serif;
 	font-size: 14px;
 	line-height: 2;
 	background-color: #517664;
@@ -58,7 +61,7 @@ label, input {
 #upload{
 	width: 80px;
 	text-align: center;
-	font-family: "Poppins-Regular", Helvetica;
+	font-family: Tahoma, sans-serif;
 	font-size: 14px;
 	line-height: 1.5;
 	background-color: #8F90B9;
@@ -70,7 +73,7 @@ label, input {
 #cancel{
 	width: 80px;
 	text-align: center;
-	font-family: "Poppins-Regular", Helvetica;
+	font-family: Tahoma, sans-serif;
 	font-size: 14px;
 	line-height: 1.5;
 	background-color: transparent;

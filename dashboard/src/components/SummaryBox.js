@@ -49,7 +49,7 @@ export function SummaryBox(props){
 		//Prevent multiple presses
 		if(disabled) return;
 		setDisabled(true);
-		setColor("#c24a05"); //Color of summarize button
+		setColor("#C6878F"); //Color of summarize button
 
 		//Server request to generate summary
 		const response = await fetch("http://localhost:3080/generate-summary",{
@@ -75,7 +75,7 @@ export function SummaryBox(props){
 	async function generateVis(){
 		if(disabled) return;
 		setDisabled(true);
-		setColor("#038e36");
+		setColor("#6a9b84");
 		
 		await timeout(2000);
 
@@ -94,7 +94,7 @@ export function SummaryBox(props){
 		<div className="presummary"> 
 			{disabled && <ThreeDots height="80" color={color}/>}
 			{!disabled && <button id="sum" onClick={generateSum} disabled={disabled}>Generate Summary</button>}
-			{!disabled && isSheet && <button id="vis" onClick={generateVis} disabled={disabled}>Visualize Data</button>}
+			{!disabled && isSheet && <button id="vis" onClick={generateVis} disabled={disabled}>Generate Visuals</button>}
 		</div>
 	);
 }

@@ -25,7 +25,7 @@ export function MainDisplay(props){
 			<SummaryBox file={props.file} id={props.currId} editFile={props.editFile} setFile={props.setFile} useTokens={props.useTokens}/>
 			<div className="original">
 				<div className="text-wrapper">Original Content</div>
-				<textarea className="original-box" readOnly value={props.file.text}/>
+				<textarea className="original-box" style={{overflow:"auto"}} readOnly value={props.file.text}/>
 			</div>
 		</div>
 	);
