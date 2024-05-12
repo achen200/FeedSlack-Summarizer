@@ -1,32 +1,29 @@
-side-menu {
-	background-color:white;
+button:hover{
+	cursor: pointer;
+}
+
+.side-menu {
 	height: 850px;
 	position: relative;
 	width: 256px;
+	background-color:#4E3D42;
+	padding: 5px;
   }
   
-  .side-menu .logo {
-	height: 68px;
-	left: 15px;
-	top: 0;
-	width: 241px;
-  }
-  
-  .side-menu .my-documents {
+  .my-documents {
 	width: 254px;
-	margin-left: 2px;
 	display: flex;
 	flex-direction: column;
 	gap: 3px;
   }
   
-  .side-menu .file-header {
+  .file-header {
 	height: 36px;
 	width: 255px;
   }
   
   .file-header .text-wrapper {
-	color: #000000;
+	color: white;
 	font-family: "Poppins-Regular", Helvetica;
 	font-size: 22px;
 	font-weight: 400;
@@ -47,7 +44,7 @@ side-menu {
   .file-icon {
 	height: 28px;
 	width: 28px;
-
+	margin-right: 0.5em;
   }
   
   .file-name {
@@ -56,7 +53,7 @@ side-menu {
   }
   
   .file-name .text-wrapper{
-	color: #000000;
+	color: #E3DBDB;
 	font-family: "Poppins-Regular", Helvetica;
 	font-size: 12px;
 	font-weight: 400;
@@ -68,17 +65,17 @@ side-menu {
 
   .logo {
 	align-items: center;
-	background-color: #1e2c5d;
+	border: 2px white solid;
 	display: flex;
 	gap: 22px;
-	height: 60px;
 	justify-content: center; 
 	position: relative;
-	width: 237px;
+	height: 68px;
+	border-radius: 10px;
   }
   
   .logo .text-wrapper {
-	color: #f99797;
+	color: white;
 	font-family: "Inter-Regular", Helvetica;
 	font-size: 36px;
 	font-weight: 400;
@@ -144,7 +141,6 @@ side-menu {
 
   .summary {
 	align-items: flex-start;
-	background-color: #ffffff;
 	display: inline-flex;
 	flex-direction: column;
 	position: relative;
@@ -152,7 +148,6 @@ side-menu {
   
   .presummary {
 	align-items: center;
-	background-color: #ffffff;
 	display: inline-flex;
 	flex-direction: column;
 	position: relative;
@@ -185,7 +180,6 @@ side-menu {
 	font-size: 20px;
 	line-height: 2;
 	border-radius: 4px;
-	color: white;
   }
   #sum:hover{
 	background-color: #c24a0581;
@@ -200,7 +194,6 @@ side-menu {
 	font-size: 20px;
 	line-height: 2;
 	border-radius: 4px;
-	color: white;
   }
   #vis:hover{
 	background-color:#038e3681;
@@ -211,7 +204,6 @@ side-menu {
 
 
   .top-nav {
-	background-color: #ffffff;
 	border-bottom-style: solid;
 	border-bottom-width: 1px;
 	border-color: #d5d5d5;
