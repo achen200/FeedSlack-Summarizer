@@ -93,8 +93,8 @@ export function SummaryBox(props){
 	):(
 		<div className="presummary"> 
 			{disabled && <ThreeDots height="80" color={color}/>}
-			{!disabled && <button id="sum" onClick={generateSum} disabled={disabled}>Generate Summary</button>}
-			{!disabled && isSheet && <button id="vis" onClick={generateVis} disabled={disabled}>Generate Visuals</button>}
+			{!disabled && <button id="sum" onClick={generateSum} disabled={disabled}>Summarize</button>}
+			{!disabled && isSheet && <button id="vis" onClick={generateVis} disabled={disabled}>Visualize</button>}
 		</div>
 	);
 }
